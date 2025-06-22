@@ -4,14 +4,26 @@
  * Buatlah program untuk menentukan input bilangan apakah ganjil atau genap. Gunakan if-else dan function yang mengembalikan hasil "ganjil"/"genap"
  */
 
-function checkOddEven() {
+let checkOddEven = function(number) {
+    let status = ""
 
-}
-
-console.log(checkOddEven(5)); // ganjil
-console.log(checkOddEven(2)); // genap
-console.log(checkOddEven("enam")); // invalid input
-
+    if (typeof number === "number") {
+      if (number % 2 == 0) {
+        status = "genap"
+      } else {
+        status = "ganjil"
+      }
+    } else {
+      status = "invalid input"
+    }
+  
+    return status;
+  }
+  
+  console.log(checkOddEven(5));        // ganjil
+  console.log(checkOddEven(2));        // genap
+  console.log(checkOddEven("enam"));   // invalid input
+  
 
 
 /**
@@ -20,9 +32,22 @@ console.log(checkOddEven("enam")); // invalid input
  * Buat sebuah program yang meminta usia seseorang, lalu gunakan if-else untuk menampilkan apakah seseorang tersebut sudah dewasa (>=18 tahun) atau belum. Gunakan if-else dan function yang mengembalikan string
  */
 
-function checkMature() {
+function checkMature(age) {
+    let status = ""
 
+  if (typeof age === "number" && age >= 0) {
+    if (age >= 18) {
+      status = "Dewasa"
+    } else {
+      status = "Belum dewasa"
+    }
+} else {
+    status = "invalid input"
+  }
+
+  return status;
 }
+
 
 console.log(checkMature(18)); // Dewasa
 console.log(checkMature(17)); // Belum dewasa
@@ -43,9 +68,28 @@ console.log(checkMature(-1)); // invalid input
  * Gunakan if-else dan function yang mengembalikan string
  */
 
-function scoreReport() {
+function scoreReport(score) {
+    let grade = ""
 
+  if (typeof score === "number" && score >= 0 && score <= 100) {
+    if (score >= 90) {
+      grade = "A"
+    } else if (score >= 80) {
+      grade = "B"
+    } else if (score >= 70) {
+      grade = "C"
+    } else if (score >= 60) {
+      grade = "D"
+    } else {
+      grade = "E"
+    }
+  } else {
+    grade = "invalid input"
+  }
+
+  return grade;
 }
+
 
 console.log(scoreReport(90)); // A
 console.log(scoreReport(89)); // B
@@ -63,9 +107,24 @@ console.log(scoreReport("sembilan puluh")); // invalid input
  * Buat program yang menampilkan semua bilangan ganjil dari 1 sampai 20 menggunakan for loop
  */
 
-function loopCheckOddEven() {
-
-}
+function loopCheckOddEven(limit) {
+    let keterangan = ""
+    if (typeof limit !== "number") {
+        console.log("invalid input")
+        return;
+      }
+    
+      for (let i = 1; i <= limit; i++) {
+    
+        if (i % 2 === 0) {
+          keterangan = "Bilangan Genap"
+        } else {
+          keterangan = "Bilangan Ganjil"
+        }
+    
+        console.log(i + " => " + keterangan);
+      }
+    }
 
 loopCheckOddEven(5)
 // 1 => Bilangan Ganjil
@@ -89,9 +148,11 @@ function totalValue(inputNumber) {
         for (let index = 1; index <=inputNumber;  index++){
             totalNumber = totalNumber + index
         }
-        console.log(totalNumber)
+        // console.log(totalNumber)
+        return totalNumber
     }else {
-        console.log("Invalid Number")
+        // console.log("Invalid Number")
+        return "Invalid Number"
     }
 
 }
@@ -107,9 +168,18 @@ console.log(totalValue("empat")); // invalid input
  * Buat program yang menerima sebuah string, lalu hitung berapa banyak huruf vokal (a, e, i, o, u) di dalam string tersebut. Gunakan function untuk mengembalikan value total jumlah huruf vocal
  */
 
-function checkVowels() {
+function checkVowels(str) {
+    let count = 0
+    let vocal = "aeiouAEIOU"
 
-}
+    for (let i = 0; i < str.length; i++) {
+      if (vocal.includes(str[i])) {
+        count++
+      }
+    }
+  
+    return count
+  }
 
 console.log(checkVowels("I Love JavaScript")); // 6
 console.log(checkVowels("mie ayam")); //4
@@ -131,7 +201,18 @@ console.log(checkVowels("mie ayam")); //4
 
 function checkVowelConsonant(char) {
     // code di scope ini yaa
+    let hasil = ""
+    let huruf = char.toLowerCase()
+
+  if ("aeiou".includes(huruf)) {
+    hasil = "Vokal"
+  } else {
+    hasil = "Konsonan"
+  }
+
+  return hasil
 }
+
 
 console.log(checkVowelConsonant('A')); // Output: "Vokal"
 console.log(checkVowelConsonant('b')); // Output: "Konsonan"
@@ -153,6 +234,13 @@ console.log(checkVowelConsonant('a')); // Output: "Vokal"
 
 function canVote(age) {
     // code di scope ini yaa
+    let bisaVote = false
+
+  if (age >= 18) {
+    bisaVote = true
+  }
+
+  return bisaVote
 }
 
 console.log(canVote(20)); // true
@@ -182,6 +270,27 @@ console.log(canVote(17)); // false
 
 function getDayName(dayNumber) {
     // code disini
+    let namaHari = ""
+
+    if (dayNumber === 1) {
+      namaHari = "Senin";
+    } else if (dayNumber === 2) {
+      namaHari = "Selasa";
+    } else if (dayNumber === 3) {
+      namaHari = "Rabu";
+    } else if (dayNumber === 4) {
+      namaHari = "Kamis";
+    } else if (dayNumber === 5) {
+      namaHari = "Jumat";
+    } else if (dayNumber === 6) {
+      namaHari = "Sabtu";
+    } else if (dayNumber === 7) {
+      namaHari = "Minggu";
+    } else {
+      namaHari = "Nomor hari tidak valid";
+    }
+  
+    return namaHari;
 }
 
 console.log(getDayName(1)); // Output: "Senin"
@@ -205,6 +314,13 @@ console.log(getDayName(8)); // Output: "Nomor hari tidak valid"
 
 function reverseArray(arr) {
     // code disini yaa
+    let reversed = []
+
+  for (let i = arr.length - 1; i >= 0; i--) {
+    reversed.push(arr[i])
+  }
+
+  return reversed
 }
 
 console.log(reverseArray([1, 2, 3, 4, 5])); // Output: [5, 4, 3, 2, 1]
@@ -218,8 +334,30 @@ console.log(reverseArray(['a', 'b', 'c'])); // Output: ['c', 'b', 'a']
  */
 
 const isPalindrome = (inputUser) => {
+    let cleanStr = ""
+    let hurufKecil = inputUser.toLowerCase();
 
+  for (let i = 0; i < hurufKecil.length; i++) {
+    if (hurufKecil[i] !== " ") {
+      cleanStr = cleanStr + hurufKecil[i];
+    }
+  }
+
+  let reversedStr = ""
+
+  for (let i = cleanStr.length - 1; i >= 0; i--) {
+    reversedStr = reversedStr + cleanStr[i];
+  }
+
+  let hasil = false
+
+  if (cleanStr === reversedStr) {
+    hasil = true
+  }
+
+  return hasil
 }
+
 
 console.log(isPalindrome("kasur rusak")); // true
 console.log(isPalindrome("kodok")); // true
