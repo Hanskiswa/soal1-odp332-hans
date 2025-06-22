@@ -10,7 +10,6 @@ for (let index = 0; index < numbers.length; index++) {
   
   console.log(resultOne)
 
-
 const numbersTwo = [1, 2, 3, 4, 5, 6, 7, 8];
 //Tambahkan semua angka ganjil dalam array dan kembalikan hasilnya.
 let resultTwo = 0
