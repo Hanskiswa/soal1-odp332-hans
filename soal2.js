@@ -330,7 +330,6 @@ console.log(reverseArray(['a', 'b', 'c'])); // Output: ['c', 'b', 'a']
 
 /**
  * Buat function untuk mengecek apakah input tersebut palindrome, return true jika palindrome, dan jika tidak palindrome maka return false
- * 
  */
 
 const isPalindrome = (inputUser) => {
